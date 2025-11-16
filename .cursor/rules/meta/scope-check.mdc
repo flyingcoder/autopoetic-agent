@@ -1,0 +1,10 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+rule "Rule File Scope" {
+  type: "manual"
+  when: file.path matches ".cursor/rules/(general|frontend|backend|workflow|meta).*"
+  valid: "✅ Scoped rule file."
+}

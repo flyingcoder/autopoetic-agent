@@ -1,0 +1,86 @@
+---
+description: Guidelines for using Cursor worktrees (parallel agents) effectively
+globs: 
+alwaysApply: false
+---
+
+rule "Worktree Best Practices" {
+  type: "guideline"
+  when: block.text contains "worktree" or block.text contains "parallel agent" or block.text contains "best-of-n"
+  message: |
+    🌳 **Cursor Worktrees Best Practices:**
+    
+    **Parallel Agents:**
+    - Each agent runs in its own worktree (isolated Git branch)
+    - Agents can make edits, build, and test without interfering with each other
+    - Use "Apply" button to merge changes back to your main branch
+    - Use "Keep" button to keep worktree for further work
+    
+    **Best-of-N (Multiple Models):**
+    - Run a single prompt across multiple models simultaneously
+    - Compare solutions from different models side-by-side
+    - Choose the best solution or merge multiple approaches
+    - Each model works in its own isolated worktree
+    
+    **Isolation Benefits:**
+    - Safe experimentation without affecting main branch
+    - Parallel development of different features
+    - Independent testing and building
+    - Easy cleanup (worktrees are automatically managed)
+    
+    **Reference:** https://cursor.com/docs/configuration/worktrees
+}
+
+rule "Worktree Apply vs Keep" {
+  type: "guideline"
+  when: block.text contains "worktree" and (block.text contains "apply" or block.text contains "keep")
+  message: |
+    🔄 **Worktree Apply vs Keep:**
+    
+    **Apply Button:**
+    - Merges worktree changes into your checked-out branch
+    - Cursor attempts clean merge automatically
+    - Use when you're satisfied with the agent's work
+    - Multiple applies in Best-of-N: Choose "Full Overwrite" or "Merge" via conflict resolution UI
+    
+    **Keep Button:**
+    - Keeps the worktree for further work
+    - Does not merge changes to main branch
+    - Use when you want to continue working in the worktree
+    - Worktree remains available for future edits
+    
+    **Best Practice:**
+    - Review changes in worktree before applying
+    - Test in worktree before applying to main branch
+    - Use "Keep" for iterative development
+}
+
+rule "Worktree Setup Requirements" {
+  type: "guideline"
+  when: block.text contains "worktree" and block.text contains "setup"
+  message: |
+    ⚙️ **Worktree Setup Configuration:**
+    
+    **Configuration File:**
+    - `.cursor/worktrees.json` in project root
+    - Defines setup commands for new worktrees
+    - Supports OS-specific commands (Unix/Windows)
+    
+    **Common Setup Steps:**
+    - Install dependencies (npm ci, pip install, etc.)
+    - Copy environment files (.env)
+    - Run database migrations
+    - Build project if needed
+    
+    **Environment Variable:**
+    - `$ROOT_WORKTREE_PATH` (Unix) or `%ROOT_WORKTREE_PATH%` (Windows)
+    - Points to the main working tree
+    - Use to copy files from main tree to worktree
+    
+    **Package Manager Note:**
+    - Use fast package managers (bun, pnpm, uv) when possible
+    - Avoid symlinking dependencies (can cause issues)
+    - Each worktree has its own dependency installation
+    
+    **Reference:** https://cursor.com/docs/configuration/worktrees
+}

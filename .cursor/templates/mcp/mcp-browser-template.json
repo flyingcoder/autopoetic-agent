@@ -1,0 +1,15 @@
+{
+  "mcpServers": {
+    "browser-tools": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@agentdesk/browser-tools-mcp"
+      ],
+      "env": {
+        "BROWSER_TOOLS_PORT": "3000"
+      }
+    }
+  }
+}
+

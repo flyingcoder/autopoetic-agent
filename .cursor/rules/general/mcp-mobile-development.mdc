@@ -1,0 +1,124 @@
+---
+description: Flutter/mobile development MCP guidelines and mobile-specific tools
+globs: 
+alwaysApply: false
+---
+
+rule "Mobile Development MCP Servers" {
+  type: "guideline"
+  when: block.text contains "mobile" or block.text contains "flutter" or block.text contains "react native" or file.path contains "mobile"
+  message: |
+    📱 **Mobile Development MCP Servers:**
+    
+    **Flutter Development:**
+    - **Flutter Tools MCP**: Flutter-specific development workflows
+    - **Device Testing MCP**: Mobile device testing and automation
+    - **Platform APIs MCP**: iOS/Android platform access
+    
+    **React Native Development:**
+    - **React Native Tools MCP**: React Native specific tooling
+    - **Metro Bundler Integration**: Development server access
+    - **Platform Bridge MCP**: Native module access
+    
+    **Use Cases:**
+    - Flutter widget development
+    - Mobile device testing
+    - Platform-specific API access
+    - Mobile app debugging
+    - Hot reload monitoring
+    
+    **Considerations:**
+    - Platform-specific requirements (iOS vs Android)
+    - Device emulator integration
+    - Mobile testing frameworks
+    - Build and deployment workflows
+}
+
+rule "Flutter MCP Integration" {
+  type: "guideline"
+  when: block.text contains "flutter" or file.path contains "flutter" or file.path contains "pubspec.yaml"
+  message: |
+    🎯 **Flutter MCP Integration:**
+    
+    **Flutter-Specific MCP Servers:**
+    - **Flutter Tools**: Development and debugging
+    - **Dart Analysis**: Code analysis and linting
+    - **Widget Inspector**: Widget tree inspection
+    - **Hot Reload**: Development server monitoring
+    
+    **Configuration Considerations:**
+    - Flutter SDK path
+    - Device emulator access
+    - Platform-specific tools (iOS/Android)
+    - Build configuration
+    
+    **Workflow:**
+    1. Access Flutter tools via MCP
+    2. Monitor hot reload status
+    3. Inspect widget tree
+    4. Run device tests
+    5. Access platform APIs
+}
+
+rule "Mobile Platform Considerations" {
+  type: "guideline"
+  when: block.text contains "iOS" or block.text contains "Android" or block.text contains "platform"
+  message: |
+    📲 **Mobile Platform Considerations:**
+    
+    **iOS MCP Servers:**
+    - Xcode integration
+    - Simulator access
+    - App Store Connect
+    - TestFlight management
+    
+    **Android MCP Servers:**
+    - Android Studio integration
+    - Emulator access
+    - Google Play Console
+    - Firebase integration
+    
+    **Cross-Platform:**
+    - Device testing tools
+    - Build automation
+    - Deployment workflows
+    - Analytics and monitoring
+    
+    **Best Practices:**
+    - Use platform-specific MCP servers when needed
+    - Prefer cross-platform tools when possible
+    - Consider build and deployment workflows
+    - Integrate with CI/CD systems
+}
+
+rule "Mobile Testing with MCP" {
+  type: "guideline"
+  when: block.text contains "mobile" and (block.text contains "test" or block.text contains "testing")
+  message: |
+    🧪 **Mobile Testing with MCP:**
+    
+    **Mobile Testing MCP Servers:**
+    - Device testing automation
+    - UI testing frameworks
+    - Performance monitoring
+    - Crash reporting
+    
+    **Flutter Testing:**
+    - Widget testing
+    - Integration testing
+    - Golden file testing
+    - Device testing
+    
+    **Workflow:**
+    1. Write tests using MCP-accessible tools
+    2. Run tests on devices/emulators
+    3. Monitor test results
+    4. Debug test failures
+    5. Generate test reports
+    
+    **Integration:**
+    - Connect to testing frameworks
+    - Access device logs
+    - Monitor test execution
+    - Generate coverage reports
+}

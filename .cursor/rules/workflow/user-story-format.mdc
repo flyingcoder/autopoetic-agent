@@ -1,0 +1,11 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+rule "User Story Format" {
+  type: "always"
+  when: block.text matches /^As a .*?, I want to .*? so that .*?$/
+  valid: "✅ Valid user story format."
+  error: "❌ Must follow 'As a [user], I want to [goal] so that [reason]'."
+}

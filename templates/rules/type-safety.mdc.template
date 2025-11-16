@@ -1,0 +1,29 @@
+---
+description: {{DESCRIPTION}}
+globs: {{GLOBS}}
+alwaysApply: {{ALWAYS_APPLY}}
+---
+
+rule "{{RULE_NAME}}" {
+  type: "{{RULE_TYPE}}"
+  when: {{WHEN_CONDITION}}
+  {{#if CONDITION}}
+  condition: {{CONDITION}}
+  {{/if}}
+  {{#if MUST_CONTAIN}}
+  block.text must_contain: {{MUST_CONTAIN}}
+  {{/if}}
+  {{#if MUST_NOT_CONTAIN}}
+  block.text must_not_contain: {{MUST_NOT_CONTAIN}}
+  {{/if}}
+  {{#if ERROR_MESSAGE}}
+  error: "{{ERROR_MESSAGE}}"
+  {{/if}}
+  {{#if WARNING_MESSAGE}}
+  warn: "{{WARNING_MESSAGE}}"
+  {{/if}}
+  {{#if INFO_MESSAGE}}
+  message: "{{INFO_MESSAGE}}"
+  {{/if}}
+}
+

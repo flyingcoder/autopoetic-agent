@@ -1,0 +1,15 @@
+{
+  "mcpServers": {
+    "example-stdio": {
+      "command": "node",
+      "args": [
+        "${workspaceFolder}/tools/mcp_server.js"
+      ],
+      "env": {
+        "API_KEY": "${env:API_KEY}"
+      },
+      "envFile": "${workspaceFolder}/.env"
+    }
+  }
+}
+

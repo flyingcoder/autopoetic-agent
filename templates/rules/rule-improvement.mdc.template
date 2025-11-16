@@ -1,0 +1,25 @@
+---
+description: {{DESCRIPTION}}
+globs: {{GLOBS}}
+alwaysApply: {{ALWAYS_APPLY}}
+---
+
+rule "{{RULE_NAME}}" {
+  type: "{{RULE_TYPE}}"
+  when: {{WHEN_CONDITION}}
+  {{#if PATTERN}}
+  block.text contains "{{PATTERN}}"
+  {{/if}}
+  {{#if MESSAGE}}
+  message: |
+    {{MESSAGE}}
+  {{/if}}
+  {{#if CHECKLIST}}
+  checklist: [
+    {{#each CHECKLIST_ITEMS}}
+    "{{this}}"{{#unless @last}},{{/unless}}
+    {{/each}}
+  ]
+  {{/if}}
+}
+

@@ -1,0 +1,49 @@
+---
+description: {{DESCRIPTION}}
+globs: {{GLOBS}}
+alwaysApply: {{ALWAYS_APPLY}}
+---
+
+rule "MCP Tool Integration for Debugging" {
+  type: "{{RULE_TYPE}}"
+  when: {{WHEN_CONDITION}}
+  message: |
+    🔧 **MCP Debugging Tools Available:**
+    
+    When debugging, consider using MCP tools:
+    {{#if MCP_TOOLS}}
+    {{#each MCP_TOOLS}}
+    - **{{this.name}}**: {{this.description}}
+      - Usage: {{this.usage}}
+    {{/each}}
+    {{else}}
+    - Configure MCP tools in your Cursor settings
+    - Common tools: file system inspection, log analysis, dependency checking
+    {{/if}}
+    
+    **Safe Debugging Practices:**
+    - Always validate file paths before reading
+    - Use read-only operations when possible
+    - Log operations for audit trail
+    - Never modify production data without explicit approval
+}
+
+rule "Project-Aware Debugging Context" {
+  type: "guideline"
+  when: block.text contains "debug" or block.text contains "error" or block.text contains "bug"
+  message: |
+    🎯 **Project Context for Debugging:**
+    
+    Before debugging, gather context:
+    1. Check project type: {{#if PROJECT_TYPE}}{{PROJECT_TYPE}}{{else}}Detect from package.json/tsconfig.json{{/if}}
+    2. Review related files in the same directory/module
+    3. Check for similar issues in git history
+    4. Validate environment variables and configuration
+    5. Use MCP tools to inspect project structure safely
+    
+    **Project Structure Detection:**
+    - Framework: {{#if FRAMEWORK}}{{FRAMEWORK}}{{else}}Auto-detect{{/if}}
+    - Language: {{#if LANGUAGE}}{{LANGUAGE}}{{else}}Auto-detect{{/if}}
+    - Build tool: {{#if BUILD_TOOL}}{{BUILD_TOOL}}{{else}}Auto-detect{{/if}}
+}
+

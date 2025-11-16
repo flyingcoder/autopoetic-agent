@@ -1,0 +1,87 @@
+---
+description: {{DESCRIPTION}}
+globs: {{GLOBS}}
+alwaysApply: {{ALWAYS_APPLY}}
+---
+
+rule "Common Error Pattern Detection" {
+  type: "{{RULE_TYPE}}"
+  when: {{WHEN_CONDITION}}
+  {{#if ERROR_PATTERNS}}
+  block.text contains "{{ERROR_PATTERN_1}}"{{#if ERROR_PATTERN_2}} or block.text contains "{{ERROR_PATTERN_2}}"{{/if}}{{#if ERROR_PATTERN_3}} or block.text contains "{{ERROR_PATTERN_3}}"{{/if}}
+  {{/if}}
+  message: |
+    🐛 **Common Error Patterns Detected:**
+    
+    **Pattern: {{ERROR_PATTERN_NAME}}**
+    
+    **Likely Causes:**
+    {{#if LIKELY_CAUSES}}
+    {{#each LIKELY_CAUSES}}
+    - {{this}}
+    {{/each}}
+    {{else}}
+    - Configuration mismatch
+    - Missing dependencies
+    - Environment variable issues
+    - Type mismatches
+    {{/if}}
+    
+    **Suggested Debugging Steps:**
+    1. Check project configuration files
+    2. Validate environment variables
+    3. Review dependency versions
+    4. Use MCP tools to inspect file structure
+    5. Check for similar issues in project history
+    
+    **MCP Tools to Use:**
+    {{#if MCP_TOOLS}}
+    {{#each MCP_TOOLS}}
+    - {{this}}: {{this.description}}
+    {{/each}}
+    {{else}}
+    - File system inspection tools
+    - Log analysis tools
+    - Dependency checking tools
+    {{/if}}
+}
+
+rule "Error Pattern: Type Mismatch" {
+  type: "guideline"
+  when: block.text contains "TypeError" or block.text contains "type mismatch" or block.text contains "cannot read property"
+  message: |
+    🔍 **Type Error Pattern Detected:**
+    
+    Common causes:
+    - Undefined/null values not properly checked
+    - Type coercion issues
+    - Missing type definitions
+    - API response structure changes
+    
+    **Debugging approach:**
+    1. Use TypeScript strict mode if available
+    2. Add type guards and null checks
+    3. Validate API responses before use
+    4. Check for recent dependency updates
+    5. Use MCP file inspection to verify types
+}
+
+rule "Error Pattern: Configuration Issues" {
+  type: "guideline"
+  when: block.text contains "config" and (block.text contains "error" or block.text contains "missing" or block.text contains "undefined")
+  message: |
+    ⚙️ **Configuration Error Pattern:**
+    
+    **Check:**
+    - Environment variables are set correctly
+    - Configuration files exist and are valid
+    - File paths are correct (absolute vs relative)
+    - Required dependencies are installed
+    
+    **Use MCP tools to:**
+    - Safely read configuration files
+    - Validate file paths
+    - Check environment variable availability
+    - Inspect project structure
+}
+

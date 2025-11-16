@@ -1,0 +1,11 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+rule "Vague Language Check" {
+  type: "manual"
+  when: block.text matches /^As a .*?, I want to .*? so that .*?$/
+  block.text must_not_contain: "(quickly|easily|somehow|maybe|possibly)"
+  warn: "⚠️ Avoid vague words like 'quickly', 'somehow'. Be precise."
+}
