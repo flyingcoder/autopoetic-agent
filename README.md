@@ -30,46 +30,62 @@ This boilerplate system provides:
 ## Structure
 
 ```
-templates/
-├── rules/              # Rule templates (.mdc.template)
-│   ├── type-safety.mdc.template
-│   ├── format-validation.mdc.template
-│   ├── accessibility.mdc.template
-│   ├── path-pattern.mdc.template
-│   ├── keyword-detection.mdc.template
-│   ├── file-structure.mdc.template
-│   └── workflow-format.mdc.template
-├── commands/           # Command templates
-│   ├── command-template.md
-│   └── feature-command-template.md
-├── debugging/          # Debugging helper templates
-│   ├── mcp-debug-helper.mdc.template
-│   ├── project-aware-debug.mdc.template
-│   ├── safe-debug-practices.mdc.template
-│   └── error-pattern-detection.mdc.template
-├── analysis.md         # Redundancy analysis report
-README.md          # This file
-
 .cursor/
-└── commands/           # Cursor command files
-    ├── bootstrap.md              # Phase 1: Initialize system
-    ├── generate-category-rules.md # Phase 2: Generate category rules
-    ├── generate-rule.md          # Generate single rule
-    ├── generate-command.md       # Generate new command
-    ├── generate-feature.md       # Generate feature with rules
-    └── generate-debug-rule.md    # Generate debugging rules
+├── rules/              # Generated Cursor rules
+│   ├── meta/           # Meta rules (rule system itself)
+│   ├── general/        # Cross-cutting rules
+│   ├── backend/        # Backend-specific rules
+│   ├── frontend/       # Frontend-specific rules
+│   └── workflow/       # Workflow/process rules
+├── commands/           # Cursor command files
+│   ├── bootstrap.md              # Phase 1: Initialize system
+│   ├── generate-category-rules.md # Phase 2: Generate category rules
+│   ├── generate-rule.md          # Generate single rule
+│   ├── generate-command.md       # Generate new command
+│   ├── generate-feature.md       # Generate feature with rules
+│   ├── generate-debug-rule.md    # Generate debugging rules
+│   ├── generate-worktree.md     # Generate worktree configuration
+│   ├── discover-mcp-servers.md   # Discover MCP servers
+│   └── generate-mcp-config.md    # Generate MCP configuration
+├── templates/          # Templates for rule/command generation
+│   ├── rules/          # Rule templates (.mdc.template)
+│   │   ├── type-safety.mdc.template
+│   │   ├── format-validation.mdc.template
+│   │   ├── accessibility.mdc.template
+│   │   ├── path-pattern.mdc.template
+│   │   ├── keyword-detection.mdc.template
+│   │   ├── file-structure.mdc.template
+│   │   └── workflow-format.mdc.template
+│   ├── commands/       # Command templates
+│   │   ├── command-template.md
+│   │   └── feature-command-template.md
+│   ├── debugging/      # Debugging helper templates
+│   │   ├── mcp-debug-helper.mdc.template
+│   │   ├── project-aware-debug.mdc.template
+│   │   ├── safe-debug-practices.mdc.template
+│   │   └── error-pattern-detection.mdc.template
+│   ├── worktrees/      # Worktree configuration templates
+│   └── mcp/            # MCP configuration templates
+├── worktrees.json      # Worktree configuration (auto-generated)
+├── mcp.json            # MCP configuration (auto-generated)
+├── README.md           # Quick-start guide
+├── WORKTREES.md         # Worktree documentation
+├── MCP.md              # MCP documentation
+└── MCP_REGISTRY.md     # MCP server registry
 
 Documentation:
-├── BOILERPLATE.md      # Complete documentation
-├── templates/USAGE.md  # Quick usage guide
-└── templates/ARCHITECTURE.md # Technical architecture
+├── .cursor/BOILERPLATE.md      # Complete documentation
+└── .cursor/DOCUMENTATION.md    # System documentation
 ```
 
 ## Documentation
 
-- **[BOILERPLATE.md](BOILERPLATE.md)** - Complete documentation with all details
-- **[templates/USAGE.md](templates/USAGE.md)** - Quick usage guide and examples
-- **[templates/ARCHITECTURE.md](templates/ARCHITECTURE.md)** - Technical architecture
+- **[.cursor/README.md](.cursor/README.md)** - Quick-start guide for the boilerplate system
+- **[.cursor/BOILERPLATE.md](.cursor/BOILERPLATE.md)** - Complete documentation with all details
+- **[.cursor/DOCUMENTATION.md](.cursor/DOCUMENTATION.md)** - System documentation
+- **[.cursor/WORKTREES.md](.cursor/WORKTREES.md)** - Worktree (parallel agents) documentation
+- **[.cursor/MCP.md](.cursor/MCP.md)** - MCP (Model Context Protocol) documentation
+- **[.cursor/MCP_REGISTRY.md](.cursor/MCP_REGISTRY.md)** - MCP server registry
 
 ## Usage
 
@@ -103,7 +119,7 @@ The AI will:
 1. Ask you to select a template from available options
 2. Prompt for rule details (name, category, type, etc.)
 3. Collect template-specific information
-4. Load the template from `templates/rules/`
+4. Load the template from `.cursor/templates/rules/`
 5. Replace placeholders with your input
 6. Validate the generated rule
 7. Write the rule to the appropriate category folder
@@ -133,7 +149,7 @@ In Cursor chat, type: `/generate-command`
 The AI will:
 1. Ask if it's a feature command or regular command
 2. Collect command details
-3. Load the appropriate template from `templates/commands/`
+3. Load the appropriate template from `.cursor/templates/commands/`
 4. Replace placeholders with your input
 5. Generate the command file in `.cursor/commands/`
 
@@ -150,7 +166,7 @@ The AI will:
    - Project type (Next.js, React, Express, etc.)
    - Feature type (API endpoint, component, etc.)
    - Language (TypeScript/JavaScript)
-4. Load templates from `templates/rules/`
+4. Load templates from `.cursor/templates/rules/`
 5. Create multiple rules (type-safety, path-pattern, accessibility if frontend)
 6. Write all rules to appropriate category folders
 
@@ -163,7 +179,7 @@ In Cursor chat, type: `/generate-debug-rule`
 The AI will:
 1. Ask for debugging rule type (mcp-integration, project-aware, safe-practices, error-patterns)
 2. Detect project structure
-3. Load template from `templates/debugging/`
+3. Load template from `.cursor/templates/debugging/`
 4. Replace placeholders with project-specific information
 5. Generate the rule in `.cursor/rules/general/`
 
@@ -198,7 +214,7 @@ Templates use placeholder syntax: `{{PLACEHOLDER_NAME}}`
 
 ### Creating Custom Templates
 
-1. Create a new `.mdc.template` file in `templates/rules/`
+1. Create a new `.mdc.template` file in `.cursor/templates/rules/`
 2. Use placeholder syntax for variables
 3. Follow the structure of existing templates
 4. The Cursor commands will automatically detect and use new templates
@@ -214,6 +230,8 @@ The debugging templates support MCP (Model Context Protocol) tool integration:
 - **project-aware-debug.mdc.template**: Project structure detection for debugging
 - **safe-debug-practices.mdc.template**: Safety guidelines and checklists
 - **error-pattern-detection.mdc.template**: Common error pattern detection
+
+All templates are located in `.cursor/templates/debugging/`
 
 ### Using Debugging Templates
 
@@ -261,7 +279,7 @@ Rules must pass validation before being written to disk.
 ## Troubleshooting
 
 ### Template Not Found
-- Ensure template file exists in `templates/rules/`
+- Ensure template file exists in `.cursor/templates/rules/` (or appropriate subdirectory)
 - Check filename matches exactly (case-sensitive)
 
 ### Validation Errors
@@ -278,7 +296,7 @@ Rules must pass validation before being written to disk.
 
 To add new templates:
 
-1. Create template file in appropriate directory (`templates/rules/`, `templates/debugging/`, etc.)
+1. Create template file in appropriate directory (`.cursor/templates/rules/`, `.cursor/templates/debugging/`, `.cursor/templates/mcp/`, etc.)
 2. Use standard placeholder syntax (`{{PLACEHOLDER_NAME}}`)
 3. Add template to documentation in the appropriate command file
 4. Test by using the Cursor command with the new template
@@ -296,7 +314,12 @@ Commands are located in `.cursor/commands/` and provide instructions to the AI a
 
 ## Documentation Files
 
-- **[BOILERPLATE.md](BOILERPLATE.md)** - Complete system documentation
+- **[.cursor/README.md](.cursor/README.md)** - Quick-start guide
+  - System overview
+  - Available commands
+  - Quick reference
+
+- **[.cursor/BOILERPLATE.md](.cursor/BOILERPLATE.md)** - Complete system documentation
   - Overview and quick start
   - System architecture
   - Commands reference
@@ -306,34 +329,25 @@ Commands are located in `.cursor/commands/` and provide instructions to the AI a
   - Best practices
   - Troubleshooting
 
-- **[templates/USAGE.md](templates/USAGE.md)** - Quick usage guide
-  - Step-by-step workflows
-  - Command quick reference
-  - Template selection guide
-  - Common workflows
-  - Troubleshooting quick fixes
+- **[.cursor/DOCUMENTATION.md](.cursor/DOCUMENTATION.md)** - System documentation
+  - Detailed system information
+  - Architecture details
+  - Implementation guides
 
-- **[templates/ARCHITECTURE.md](templates/ARCHITECTURE.md)** - Technical architecture
-  - Design principles
-  - System components
-  - Data flow diagrams
-  - Project detection algorithm
-  - Template processing
-  - Validation system
-  - Extension points
-
-- **[templates/COMMANDS.md](templates/COMMANDS.md)** - Commands reference
-  - Complete command documentation
-  - Command dependencies
-  - Error messages
+- **[.cursor/WORKTREES.md](.cursor/WORKTREES.md)** - Worktree documentation
+  - Parallel agent support
+  - Configuration guide
   - Best practices
 
-- **[templates/TEMPLATES.md](templates/TEMPLATES.md)** - Templates reference
-  - All rule templates
-  - All debugging templates
-  - All command templates
-  - Template selection guide
-  - Placeholder reference
+- **[.cursor/MCP.md](.cursor/MCP.md)** - MCP documentation
+  - Model Context Protocol guide
+  - Server setup instructions
+  - Web development workflows
+
+- **[.cursor/MCP_REGISTRY.md](.cursor/MCP_REGISTRY.md)** - MCP server registry
+  - Available MCP servers
+  - Configuration examples
+  - Server discovery
 
 ## See Also
 
@@ -341,5 +355,6 @@ Commands are located in `.cursor/commands/` and provide instructions to the AI a
 - `.cursor/rules/meta/rule-generation-guide.mdc` - Rule generation guide
 - `.cursor/rules/meta/rule-improvement.mdc` - Self-improvement system
 - `.cursor/commands/` - All Cursor command files
+- `.cursor/templates/` - All template files (rules, commands, debugging, worktrees, mcp)
 - [Cursor Documentation](https://cursor.com/docs) - Official Cursor documentation for commands, MCP, and more
 
