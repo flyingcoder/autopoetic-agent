@@ -1,5 +1,5 @@
 ---
-description: 
+description: Detects vague language in user stories and prompts for more precise wording. Flags words like "quickly", "easily", "somehow", "maybe", "possibly" that lack specificity.
 globs: 
 alwaysApply: false
 ---

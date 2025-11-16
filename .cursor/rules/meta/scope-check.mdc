@@ -1,5 +1,5 @@
 ---
-description: 
+description: Validates that rule files are placed in the correct category folders (general, frontend, backend, workflow, meta) to maintain proper organization and scope.
 globs: 
 alwaysApply: false
 ---
