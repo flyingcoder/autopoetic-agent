@@ -1,0 +1,133 @@
+---
+description: Guidelines for using MCP (Model Context Protocol) servers effectively, prioritizing web development workflows
+globs:
+alwaysApply: false
+---
+
+# MCP Usage Guidelines
+
+rule "MCP Server Best Practices" {
+  type: "guideline"
+  when: block.text contains "MCP" or block.text contains "mcp server" or block.text contains "Model Context Protocol"
+  message: |
+    🔌 **MCP Server Best Practices:**
+
+    **What is MCP?**
+    - Model Context Protocol connects Cursor to external tools and data sources
+    - Enables access to databases, browsers, design tools, project management, and more
+    - Reduces context switching and improves task execution
+    - Reference: https://cursor.com/docs/context/mcp
+    
+    **Web Development Priority:**
+    - **Linear**: Project management integration for issue tracking
+    - **Figma**: Design system and mockup access
+    - **Browser Tools**: Console logs and network request monitoring
+    - These three are essential for web development workflows
+
+    **Transport Methods:**
+    - **stdio**: Local servers running on your machine (simpler, secure, single user)
+    - **SSE**: Server-Sent Events for remote servers (multiple users, OAuth)
+    - **Streamable HTTP**: HTTP endpoints for remote servers (multiple users, OAuth)
+    - Choose based on your needs (local vs shared)
+    
+    **Security Considerations:**
+    - Use environment variables for sensitive data (API keys, database URLs)
+    - Prefer read-only access for databases
+    - Validate and sanitize inputs from MCP servers
+    - Use proper authentication for HTTP/SSE transports
+    - Verify server source before installation
+    - Review permissions and audit code for critical integrations
+
+    **When to Use MCP:**
+    - Need database access for queries and schema inspection
+    - Want to integrate design tools (Figma) for component specs
+    - Need project management integration (Linear, Jira)
+    - Require browser automation or monitoring
+    - Want to access external APIs or services
+}
+
+rule "MCP for Web Development Workflows" {
+  type: "guideline"
+  when: block.text contains "web development" or block.text contains "frontend" or (file.path contains "web" and block.text contains "MCP")
+  message: |
+    🌐 **MCP for Web Development:**
+
+    **Essential Web Development MCP Servers:**
+    1. **Linear** - Project management and issue tracking
+    2. **Figma** - Design system and component access
+    3. **Browser Tools** - Console and network monitoring
+    
+    **Benefits:**
+    - Tight feedback loops between design and code
+    - Direct access to project issues and tasks
+    - Real-time browser verification of implementations
+    - Reduced context switching
+    
+    **Workflow Integration:**
+    - Use Linear to pull in tasks and requirements
+    - Use Figma to access design specs and components
+    - Use Browser Tools to verify implementations match designs
+    - Maintain component consistency with design system
+
+    **Reference**: https://cursor.com/docs/cookbook/web-development
+}
+
+rule "MCP for Mobile Development" {
+  type: "guideline"
+  when: block.text contains "mobile" or block.text contains "flutter" or block.text contains "react native" or file.path contains "mobile"
+  message: |
+    📱 **MCP for Mobile Development:**
+
+    **Mobile Development MCP Servers:**
+    - **Flutter Tools**: Flutter-specific development and testing
+    - **Mobile Testing**: Device testing and automation
+    - **Platform APIs**: iOS/Android platform access
+    
+    **Use Cases:**
+    - Flutter development workflows
+    - Mobile device testing
+    - Platform-specific API access
+    - Mobile app debugging
+    
+    **Considerations:**
+    - Platform-specific requirements (iOS vs Android)
+    - Device emulator integration
+    - Mobile testing frameworks
+}
+
+rule "MCP Transport Selection" {
+  type: "guideline"
+  when: block.text contains "MCP" and (block.text contains "stdio" or block.text contains "HTTP" or block.text contains "SSE" or block.text contains "transport")
+  message: |
+    🚀 **MCP Transport Selection:**
+
+    **stdio (Standard Input/Output):**
+    - **Use when**: Running locally, single developer, simple setup
+    - **Execution**: Local, Cursor manages
+    - **Users**: Single user
+    - **Input**: Shell command
+    - **Auth**: Manual (environment variables)
+    - **Example**: Local database server, file system access
+    
+    **SSE (Server-Sent Events):**
+    - **Use when**: Team access needed, centralized server, shared resources
+    - **Execution**: Local/Remote, deploy as server
+    - **Users**: Multiple users
+    - **Input**: URL to SSE endpoint
+    - **Auth**: OAuth
+    - **Example**: Figma MCP Server, team database access
+    
+    **Streamable HTTP:**
+    - **Use when**: Team access needed, HTTP-based server
+    - **Execution**: Local/Remote, deploy as server
+    - **Users**: Multiple users
+    - **Input**: URL to HTTP endpoint
+    - **Auth**: OAuth
+    - **Example**: Remote API servers, cloud services
+    
+    **Decision Guide:**
+    - Start with stdio for local development
+    - Move to SSE/HTTP when team access is needed
+    - Consider security implications for each transport
+    - Reference: https://cursor.com/docs/context/mcp
+}

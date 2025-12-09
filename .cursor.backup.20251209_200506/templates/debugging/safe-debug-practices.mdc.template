@@ -1,0 +1,65 @@
+---
+description: {{DESCRIPTION}}
+globs: {{GLOBS}}
+alwaysApply: {{ALWAYS_APPLY}}
+---
+
+rule "Safe Debugging Practices" {
+  type: "{{RULE_TYPE}}"
+  when: {{WHEN_CONDITION}}
+  message: |
+    🛡️ **Safe Debugging Guidelines:**
+    
+    **Always:**
+    - ✅ Validate file paths before reading/writing
+    - ✅ Use read-only operations when possible
+    - ✅ Create backups before making changes
+    - ✅ Test changes in isolated environment first
+    - ✅ Log all debugging operations for audit
+    - ✅ Use MCP tools for safe file inspection
+    
+    **Never:**
+    - ❌ Modify production data without explicit approval
+    - ❌ Delete files without checking dependencies
+    - ❌ Hardcode temporary fixes without documenting
+    - ❌ Skip validation of user inputs
+    - ❌ Ignore security implications of changes
+    
+    **When Using MCP Tools:**
+    - Verify tool permissions before execution
+    - Review tool output before acting on it
+    - Use tools in read-only mode when possible
+    - Document which tools were used for debugging
+}
+
+rule "Debugging Safety Checklist" {
+  type: "guideline"
+  when: block.text contains "fix" or block.text contains "debug" or block.text contains "resolve"
+  message: |
+    ✅ **Pre-Debugging Checklist:**
+    
+    - [ ] Identified the root cause (not just symptoms)
+    - [ ] Reviewed related code and dependencies
+    - [ ] Checked for similar issues in project history
+    - [ ] Validated environment and configuration
+    - [ ] Created backup or branch for changes
+    - [ ] Documented debugging approach
+    - [ ] Considered security implications
+    - [ ] Planned rollback strategy if needed
+}
+
+rule "Error Handling Best Practices" {
+  type: "guideline"
+  when: file.path ends_with ".ts" or file.path ends_with ".tsx" or file.path ends_with ".js" or file.path ends_with ".jsx"
+  message: |
+    🔒 **Error Handling Safety:**
+    
+    When implementing error handling:
+    - Never log sensitive information (passwords, tokens, PII)
+    - Use structured logging with sanitized fields
+    - Validate error messages before exposing to users
+    - Implement proper error boundaries
+    - Use try-catch blocks appropriately
+    - Never suppress errors without logging
+}
+
