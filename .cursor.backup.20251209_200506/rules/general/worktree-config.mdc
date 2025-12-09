@@ -1,0 +1,40 @@
+---
+description: Validates worktree.json structure and setup commands
+globs: .cursor/worktrees.json
+alwaysApply: true
+---
+
+rule "Worktree Config Must Be Valid JSON" {
+  type: "always"
+  when: file.path ends_with "worktrees.json"
+  condition: file.text matches /\{[\s\S]*"setup-worktree/
+  error: "❌ worktrees.json must be valid JSON with at least one setup-worktree configuration."
+}
+
+rule "Worktree Config Should Have OS-Specific Commands" {
+  type: "guideline"
+  when: file.path ends_with "worktrees.json"
+  condition: file.text contains "setup-worktree-unix" or file.text contains "setup-worktree-windows"
+  message: "✅ Good: OS-specific worktree setup commands improve compatibility."
+}
+
+rule "Worktree Config Should Handle Environment Files" {
+  type: "guideline"
+  when: file.path ends_with "worktrees.json" and file.text contains ".env"
+  condition: file.text contains "$ROOT_WORKTREE_PATH" or file.text contains "%ROOT_WORKTREE_PATH%"
+  message: "✅ Good: Using ROOT_WORKTREE_PATH to copy environment files ensures worktrees have proper configuration."
+}
+
+rule "Worktree Config Should Install Dependencies" {
+  type: "guideline"
+  when: file.path ends_with "worktrees.json"
+  condition: file.text contains "npm" or file.text contains "pip" or file.text contains "pnpm" or file.text contains "bun" or file.text contains "yarn"
+  message: "✅ Good: Dependency installation ensures worktrees have required packages."
+}
+
+rule "Worktree Config Should Use Fast Package Managers" {
+  type: "guideline"
+  when: file.path ends_with "worktrees.json" and file.text contains "npm install"
+  condition: file.text contains "npm ci" or file.text contains "pnpm" or file.text contains "bun"
+  message: "💡 Consider using 'npm ci' (faster, deterministic) or fast package managers like pnpm/bun for better worktree performance."
+}

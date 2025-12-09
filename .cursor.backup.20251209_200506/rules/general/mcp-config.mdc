@@ -1,0 +1,68 @@
+---
+description: Validates MCP configuration structure and ensures proper server definitions
+globs: **/mcp.json,**/.cursor/mcp.json
+alwaysApply: true
+---
+
+rule "MCP Config Must Be Valid JSON" {
+  type: "always"
+  when: file.path ends_with "mcp.json"
+  condition: file.text matches /\{[\s\S]*"mcpServers"/
+  error: "❌ MCP configuration must be valid JSON with 'mcpServers' object."
+}
+
+rule "MCP Server Must Have Transport" {
+  type: "always"
+  when: file.path ends_with "mcp.json"
+  condition: file.text contains '"mcpServers"' and (file.text contains '"command"' or file.text contains '"url"')
+  error: "❌ Each MCP server must specify either 'command' (stdio) or 'url' (HTTP/SSE) transport."
+}
+
+rule "MCP Server stdio Transport" {
+  type: "guideline"
+  when: file.path ends_with "mcp.json" and file.text contains '"command"'
+  condition: file.text contains '"args"' or file.text contains '"env"'
+  message: "✅ Good: stdio transport includes command and args/env configuration."
+}
+
+rule "MCP Server HTTP/SSE Transport" {
+  type: "guideline"
+  when: file.path ends_with "mcp.json" and file.text contains '"url"'
+  condition: file.text matches /"url":\s*"https?:\/\//
+  message: "✅ Good: HTTP/SSE transport uses proper URL format."
+}
+
+rule "MCP Config Should Use Environment Variables" {
+  type: "guideline"
+  when: file.path ends_with "mcp.json" and file.text contains '"env"'
+  condition: file.text matches /"env":\s*\{[\s\S]*"\$\{env:[A-Z_]+\}"/
+  message: "✅ Good: Using environment variable interpolation (${env:NAME}) for sensitive configuration."
+}
+
+rule "MCP Config Should Not Hardcode Secrets" {
+  type: "always"
+  when: file.path ends_with "mcp.json" and file.text contains '"mcpServers"'
+  condition: not (file.text matches /(password|secret|key|token)\s*:\s*"[^"]{10,}"/i)
+  warn: "⚠️ Avoid hardcoding secrets in MCP config. Use environment variables (${env:NAME}) instead."
+}
+
+rule "MCP Config Should Use Config Interpolation" {
+  type: "guideline"
+  when: file.path ends_with "mcp.json"
+  condition: file.text contains "${workspaceFolder}" or file.text contains "${env:" or file.text contains "${userHome}"
+  message: "✅ Good: Using config interpolation (${workspaceFolder}, ${env:NAME}, ${userHome}) for dynamic paths."
+}
+
+rule "Web Development MCP Servers Recommended" {
+  type: "guideline"
+  when: file.path ends_with "mcp.json" and (file.path contains "web" or file.path contains "frontend")
+  condition: file.text contains "Linear" or file.text contains "Figma" or file.text contains "browser"
+  message: "✅ Good: Web development MCP servers (Linear, Figma, Browser Tools) are configured."
+}
+
+rule "MCP Server Names Should Be Descriptive" {
+  type: "guideline"
+  when: file.path ends_with "mcp.json" and file.text contains '"mcpServers"'
+  condition: file.text matches /"mcpServers":\s*\{[\s\S]*"[A-Z][a-zA-Z0-9]+"/
+  message: "✅ Good: MCP server names are descriptive and follow naming conventions."
+}
