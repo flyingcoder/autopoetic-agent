@@ -1,0 +1,79 @@
+---
+description: Web development workflow guidelines based on Cursor Web Development Cookbook
+globs: 
+alwaysApply: false
+---
+
+rule "Web Development Workflow" {
+  type: "guideline"
+  when: block.text contains "web development" or file.path contains "frontend" or (file.path contains "web" and block.text contains "workflow")
+  message: |
+    🌐 **Web Development Workflow Best Practices:**
+    
+    **Orchestration in Cursor:**
+    - **Chat**: Great for bootstrapping changes
+    - **Inline Edit** and **Tab**: Help maintain flow state after major pieces are in place
+    - Switch between modes to maintain productivity
+    
+    **Tight Feedback Loops:**
+    - Use MCP servers (Linear, Figma, Browser Tools) to reduce context switching
+    - Verify implementations in browser using Browser Tools MCP
+    - Access designs directly from Figma MCP
+    - Pull requirements from Linear MCP
+    
+    **Component Reuse:**
+    - Reuse existing UI components from your component library
+    - Create new components by orchestrating existing UI components
+    - Ask human when components or designs are missing
+    - Maintain consistency with design system
+    
+    **Task Scoping:**
+    - Clear, scoped tasks lead to better results
+    - Be intentional with how you prompt
+    - Break down complex features into smaller tasks
+    
+    **Reference**: https://cursor.com/docs/cookbook/web-development
+}
+
+rule "Declarative Code Patterns" {
+  type: "guideline"
+  when: file.path contains "frontend" and (block.text contains "React" or block.text contains "JSX" or block.text contains "component")
+  message: |
+    📝 **Declarative Code Patterns:**
+    
+    **For React and JSX:**
+    - Declarative code works especially well with models
+    - Use declarative patterns for UI components
+    - Prefer composition over complex logic
+    - Keep components focused and reusable
+    
+    **Benefits:**
+    - Models understand declarative patterns better
+    - Easier to maintain and reason about
+    - Better alignment with design systems
+    - More consistent code generation
+}
+
+rule "Design System Integration" {
+  type: "guideline"
+  when: block.text contains "design system" or block.text contains "component library" or file.path contains "components"
+  message: |
+    🎨 **Design System Integration:**
+    
+    **Help the agent discover your design system:**
+    - Provide rules that reference your component library path
+    - Document component patterns and conventions
+    - Use Figma MCP to access design specifications
+    - Maintain consistency between design and code
+    
+    **Component Library Rules:**
+    - Reference component library path (e.g., `/src/components/ui`)
+    - Document available primitives
+    - Specify composition patterns
+    - Guide when to create new components
+    
+    **As Component Library Grows:**
+    - Add new rules for new component types
+    - Split rules into specific categories when they become too numerous
+    - Keep rules focused (e.g., "only apply when working with user inputs")
+}

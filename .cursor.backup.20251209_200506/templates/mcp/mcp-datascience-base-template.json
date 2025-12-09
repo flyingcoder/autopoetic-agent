@@ -1,0 +1,26 @@
+{
+  "mcpServers": {
+    "postgres": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-postgres",
+        "${env:DATABASE_URL}"
+      ],
+      "env": {
+        "DATABASE_URL": "${env:DATABASE_URL}"
+      }
+    },
+    "jupyter": {
+      "command": "python",
+      "args": [
+        "-m",
+        "jupyter_mcp_server"
+      ],
+      "env": {
+        "JUPYTER_PATH": "${workspaceFolder}/.jupyter"
+      }
+    }
+  }
+}
+

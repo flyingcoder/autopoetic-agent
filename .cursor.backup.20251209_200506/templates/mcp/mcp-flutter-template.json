@@ -1,0 +1,14 @@
+{
+  "mcpServers": {
+    "flutter-tools": {
+      "command": "flutter",
+      "args": [
+        "mcp-server"
+      ],
+      "env": {
+        "FLUTTER_ROOT": "${env:FLUTTER_ROOT}"
+      }
+    }
+  }
+}
+

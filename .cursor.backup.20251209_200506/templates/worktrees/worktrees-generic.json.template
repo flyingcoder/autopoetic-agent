@@ -1,0 +1,15 @@
+{
+  "setup-worktree-unix": [
+    "echo 'Worktree setup for Unix systems'",
+    "cp $ROOT_WORKTREE_PATH/.env .env 2>/dev/null || echo 'No .env file found'"
+  ],
+  "setup-worktree-windows": [
+    "echo 'Worktree setup for Windows systems'",
+    "copy %ROOT_WORKTREE_PATH%\\.env .env 2>nul || echo 'No .env file found'"
+  ],
+  "setup-worktree": [
+    "echo 'Generic worktree setup. Customize this configuration for your project.'",
+    "echo 'See https://cursor.com/docs/configuration/worktrees for documentation.'"
+  ]
+}
+

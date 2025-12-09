@@ -1,0 +1,58 @@
+---
+description: UI component reuse patterns based on Cursor Web Development Cookbook
+globs: 
+alwaysApply: false
+---
+
+rule "Reuse Existing UI Components" {
+  type: "guideline"
+  when: block.text contains "component" and (file.path contains "frontend" or file.path contains "components")
+  message: |
+    🧩 **Reuse Existing UI Components:**
+    
+    **Primary Rule:**
+    - Reuse existing UI components from `/src/components/ui` (or your component library path)
+    - These are the primitives you can build with
+    - Check component library before creating new components
+    
+    **When Creating New Components:**
+    - Create new components by orchestrating existing UI components
+    - Compose primitives to build complex components
+    - Only create new primitives when existing ones don't solve the problem
+    
+    **When Components or Designs are Missing:**
+    - Ask the human how they want to proceed
+    - Don't assume component structure
+    - Reference design system via Figma MCP if available
+    - Check for similar components in codebase
+    
+    **Best Practices:**
+    - Maintain consistency with existing component patterns
+    - Follow established naming conventions
+    - Use design system tokens (colors, spacing, typography)
+    - Verify component matches design using Browser Tools MCP
+}
+
+rule "Component Composition" {
+  type: "guideline"
+  when: block.text contains "component" and (block.text contains "create" or block.text contains "build" or block.text contains "new")
+  message: |
+    🔨 **Component Composition:**
+    
+    **Composition Strategy:**
+    1. Check existing component library first
+    2. Look for similar components that can be reused
+    3. Compose existing components to build new functionality
+    4. Create new primitives only when necessary
+    
+    **Example Pattern:**
+    - Instead of building a complex form from scratch
+    - Compose: Input + Button + Label + Validation components
+    - Reuse existing form patterns from component library
+    
+    **Benefits:**
+    - Faster development
+    - Consistent UI
+    - Easier maintenance
+    - Better alignment with design system
+}

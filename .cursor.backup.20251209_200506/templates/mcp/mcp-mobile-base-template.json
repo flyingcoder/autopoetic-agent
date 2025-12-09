@@ -1,0 +1,21 @@
+{
+  "mcpServers": {
+    "flutter-tools": {
+      "command": "flutter",
+      "args": [
+        "mcp-server"
+      ],
+      "env": {
+        "FLUTTER_ROOT": "${env:FLUTTER_ROOT}"
+      }
+    },
+    "mobile-testing": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@mobile-testing/mcp-server"
+      ]
+    }
+  }
+}
+
