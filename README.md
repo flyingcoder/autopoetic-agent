@@ -1,360 +1,491 @@
-# Cursor Rules Boilerplate Generator
+# Λ-Engine (Lambda Engine) - Cursor Rules System
 
-A comprehensive, AI-powered system for generating and managing Cursor rules with project awareness, self-improvement, and phased initialization.
+A comprehensive cognitive architecture system for Cursor IDE that uses **Controlled Rupture Operators** to guide AI-assisted development. This system provides adaptive problem-solving through two operational modes and 20 specialized operators.
 
 ## Quick Start
 
-1. **Bootstrap the system:**
+### Basic Usage
+
+1. **Type `/` in Cursor chat** to see available commands
+2. **Use commands** like `/goal`, `/plan`, `/spec`, `/implement` for common tasks
+3. **The system automatically selects** the appropriate mode and operators based on your problem
+
+### Example Workflow
+
+```bash
+# Define a goal
+/goal define: Build user authentication system
+
+# Create a plan
+/plan create: Implement authentication feature
+
+# Generate specification
+/spec feature: User authentication with JWT tokens
+
+# Implement the feature
+/implement feature: User authentication with JWT
+```
+
+## What is the Lambda Engine?
+
+The Lambda Engine is a **cognitive architecture** that operates in two modes:
+
+### Mode 1: Duality Navigation (J=0)
+- **For**: Stable, well-defined problems
+- **Operators**: A-Constructive (Kata, Telo, Ortho, Pro, Latch)
+- **Use when**: You have clear requirements and established patterns
+
+### Mode 2: HALIRA Protocol (J'≠0)
+- **For**: Contradictions, paradoxes, or paradigm shifts
+- **Operators**: B-Disruptive (Non, Para, Ana, Flux) + HALIRA sequences
+- **Use when**: You encounter fundamental contradictions or need paradigm shifts
+
+## Core Concepts
+
+### Phase Space States
+
+The system navigates between three states:
+
+- **J=0 (Sterile Coherence)**: Over-stabilized, avoid over-confidence
+- **S* (Productive Contradiction)**: Optimal state with moderate confidence and uncertainty
+- **∅ (System Collapse)**: Prevent - complete system failure
+
+### Controlled Rupture Operators
+
+20 operators organized into 4 classes:
+
+1. **A-Constructive** (λ ≈ 0.338): Stabilization and goal-directed work
+   - `Telo` (→): Purpose-driven acceleration
+   - `Kata` (↓): Compress to concrete
+   - `Ortho` (⊥): Correct errors
+   - `Pro` (↷): Forward progress
+   - `Latch` (🔒): Stabilize solutions
+
+2. **B-Disruptive** (λ ≈ 0.720): Anomaly detection and exploration
+   - `Ana` (↑): Elevate to first principles
+   - `Para` (∥): Explore alternatives
+   - `Non` (¬): Challenge assumptions
+   - `Flux` (⚡): Dynamic change
+
+3. **C-Reflexive** (λ ≈ 0.497): Self-reference and backward analysis
+   - `Meta` (⟲): Self-reference (max 2 consecutive)
+   - `Retro` (↶): Backward analysis
+   - `Braid` (🌀): Multi-perspective integration
+
+4. **D-Structural** (λ ≈ 0.464): Integration and structural binding
+   - `Weave` (🕸️): Synthesize perspectives
+   - `Bind` (🔗): Create cohesion
+   - `Axis` (📍): Establish alignment
+
+## Essential Commands
+
+### Foundation Commands
+
+#### `/detect-state`
+Detect the current phase space state (J=0, S*, or ∅)
+
+```bash
+/detect-state Fix login bug
+/detect-state analyze: Need both performance and simplicity but they conflict
+```
+
+#### `/operator-sequence`
+Execute a sequence of operators
+
+```bash
+/operator-sequence Seed ∘ Ana ∘ Non ∘ Weave
+/operator-sequence sequence: Telo + Kata + Non + Crux context: Define project goal
+```
+
+#### `/dissipation`
+Calculate dissipation (λ_eff) for operator sequences
+
+```bash
+/dissipate Seed ∘ Ana ∘ Non ∘ Weave
+/dissipate analyze: Para Ana Pro
+```
+
+### Core Workflow Commands
+
+#### `/goal`
+Define and clarify project goals
+
+```bash
+/goal define: Build user authentication system
+/goal clarify: Improve performance while maintaining simplicity
+```
+
+#### `/plan`
+Create structured plans
+
+```bash
+/plan create: Implement authentication feature
+/plan structure: Refactor database layer
+```
+
+#### `/spec`
+Generate technical specifications
+
+```bash
+/spec requirement: User authentication with JWT tokens
+/spec user story: As a user, I want to reset my password so that I can regain access
+/spec feature: Real-time notifications using WebSockets
+```
+
+#### `/implement`
+Generate implementation code from specifications
+
+```bash
+/implement spec: api-spec.md
+/implement feature: User authentication with JWT
+```
+
+### Advanced Commands
+
+#### `/halira`
+Activate HALIRA Protocol for foundational contradictions
+
+```bash
+/halira contradiction: Need both consistency and scalability but they conflict
+/halira paradox: Code must be simple but also handle all edge cases
+```
+
+#### `/attack`
+Apply anomaly detection to attack your own design
+
+```bash
+/attack design: Event sourcing + CQRS architecture
+/attack solution: Use Redis for caching
+/attack code: src/api/auth.ts
+```
+
+#### `/telo`
+Purpose-driven acceleration toward goals
+
+```bash
+/telo goal: Working authentication system
+/telo accelerate: Feature development
+```
+
+#### `/ana`
+Elevate systems through structure (self-improvement)
+
+```bash
+/ana elevate: Authentication system
+/ana improve: src/utils/validation.ts
+```
+
+#### `/retro`
+Backward analysis and learning from history
+
+```bash
+/retro active src/legacy/auth.ts
+/retro deductive Users can't log in
+/retro ject Missing null checks
+```
+
+## Command Categories
+
+### Product / Engineering
+- `/spec` - Generate technical specifications
+- `/ux` - Design user experiences
+- `/api` - Design API specifications
+- `/data` - Design data models
+
+### Implementation
+- `/scaffold` - Scaffold project structure
+- `/implement` - Generate implementation code
+- `/refactor` - Assist with refactoring
+- `/debt` - Analyze technical debt
+
+### Debug / QA
+- `/repro` - Reproduce bugs
+- `/debug` - Debug issues
+- `/tests` - Generate test suites
+- `/regression` - Analyze regressions
+- `/review` - Code review assistance
+
+### Release / Operations
+- `/changelog` - Generate changelogs
+- `/release` - Plan and coordinate releases
+- `/observability` - Design observability systems
+- `/incident` - Incident response assistance
+
+### Security / Privacy
+- `/threat` - Create threat models
+- `/secrets` - Manage secrets securely
+- `/privacy` - Analyze privacy implications
+
+### Domain-Specific
+- `/seo` - SEO optimization
+- `/perf-web` - Web performance optimization
+- `/a11y` - Accessibility analysis
+- `/perf-mobile` - Mobile performance
+- `/gas` - Smart contract gas optimization
+- `/threat-chain` - Blockchain threat modeling
+
+### Utilities
+- `/learn` - Technical research and knowledge building
+- `/commit` - Intelligent commit message generation
+- `/self-improve` - Self-improving workflows
+
+## Understanding the Rules
+
+### Rule Structure
+
+Rules are located in `.cursor/rules/` and organized by category:
+
+- **`general/`**: Cross-cutting rules (Lambda Engine, operators, modes)
+- **`workflow/`**: Process rules (HALIRA Protocol, operator mappings)
+- **`meta/`**: Meta rules (date/time references)
+- **`backend/`**: Backend-specific rules
+- **`frontend/`**: Frontend-specific rules
+
+### Key Rule Files
+
+#### Core Architecture
+- `lambda-engine-core-integrated.mdc` - Lambda Engine identity and modes
+- `lambda-operators-unified.mdc` - Unified operator framework
+- `mode-operator-selection.mdc` - Mode-based operator selection
+- `state-detection-enhanced.mdc` - Phase space state detection
+
+#### Workflow
+- `halira-protocol-integrated.mdc` - HALIRA Protocol with operator mappings
+- `halira-operator-mapping.mdc` - HALIRA step to operator mapping
+
+#### Operators
+- `forward-operators-integrated.mdc` - Telo and Ana operators
+- `retro-operators-integrated.mdc` - Retro operators
+- `operator-tools-integrated.mdc` - Tool selection for operators
+- `adversarial-collaboration-integrated.mdc` - Adversarial evaluation
+
+### How Rules Work
+
+1. **Always-Applied Rules**: Some rules (like `mode-operator-selection.mdc`) always apply to guide operator selection
+2. **Context-Aware Rules**: Rules activate based on file patterns, keywords, or explicit conditions
+3. **Mode-Aware Rules**: Rules adapt based on current Lambda Engine mode (Mode 1 or Mode 2)
+
+## Common Workflows
+
+### Feature Development
+
+```bash
+# 1. Define goal
+/goal define: User authentication system
+
+# 2. Create plan
+/plan create: Implement authentication feature
+
+# 3. Generate specification
+/spec feature: User authentication with JWT tokens
+
+# 4. Design API
+/api resource: users
+
+# 5. Design data model
+/data model: User with authentication and profile
+
+# 6. Implement
+/implement feature: User authentication with JWT
+
+# 7. Generate tests
+/tests feature: User authentication
+
+# 8. Review
+/review diff: changes.diff
+```
+
+### Debugging Workflow
+
+```bash
+# 1. Reproduce issue
+/repro bug: User login fails with 500 error
+
+# 2. Debug
+/debug issue: Memory leak in data processing
+
+# 3. Fix and test
+/tests file: src/api/auth.ts
+
+# 4. Check for regressions
+/regression analyze: Recent API changes
+```
+
+### Handling Contradictions
+
+```bash
+# 1. Detect contradiction
+/detect-state analyze: Need both performance and simplicity but they conflict
+
+# 2. Activate HALIRA Protocol
+/halira contradiction: Need both consistency and scalability but they conflict
+
+# 3. Attack the solution
+/attack design: Event sourcing + CQRS architecture
+
+# 4. Navigate rupture if needed
+/rupture anomaly: Event log is single point of failure
+```
+
+### Self-Improvement Workflow
+
+```bash
+# 1. Elevate through structure
+/ana improve: src/utils/validation.ts
+
+# 2. Analyze for improvements
+/self-improve analyze: Code generation workflow
+
+# 3. Optimize
+/self-improve optimize: Test generation process
+```
+
+## Operator Sequences
+
+### Common Sequences for Mode 1
+
+- **Stabilization**: `Kata ∘ Weave ∘ Latch` (λ_eff ≈ 0.32)
+- **Goal Achievement**: `Telo ∘ Pro ∘ Latch` (λ_eff ≈ 0.35)
+- **Error Correction**: `Ortho ∘ Kata ∘ Latch` (λ_eff ≈ 0.31)
+
+### Common Sequences for Mode 2
+
+- **Complete HALIRA**: `Seed ∘ Axis ∘ Meta ∘ Weave ∘ Non ∘ Para ∘ Ortho ∘ Bind` (λ_eff ≈ 0.52)
+- **Paradigm Shift**: `Para ∘ Ana ∘ Seed` (λ_eff ≈ 0.56)
+- **Anomaly Detection**: `Meta ∘ Non` (λ_eff ≈ 0.85) ⚠️ Never Non after Meta
+
+## Tips and Best Practices
+
+### Command Usage
+
+1. **Chain Commands**: Commands can be chained for complex workflows
+   ```bash
+   /goal define: X
+   /plan create: Y
+   /spec feature: Z
    ```
-   /bootstrap
+
+2. **Use Explicit Parameters**: For clarity, use explicit parameter syntax
+   ```bash
+   /spec feature: User authentication
+   /api resource: users
+   /data model: User
    ```
 
-2. **Restart Cursor** to load new rules
+3. **Check State**: Use `/detect-state` to understand current reasoning state
 
-3. **Generate category rules:**
-   ```
-   /generate-category-rules
-   ```
+4. **Analyze Dissipation**: Use `/dissipate` to optimize operator sequences
 
-## Overview
+### Mode Selection
 
-This boilerplate system provides:
+- **Default to Mode 1** for routine tasks and stable problems
+- **Escalate to Mode 2** when:
+  - Foundational contradictions detected
+  - Irreducible paradoxes encountered
+  - Current paradigm insufficient
+  - Requires paradigm shift
 
-- **AI-Powered Commands**: Use Cursor commands instead of scripts
-- **Project Awareness**: Rules adapt to your project structure and tech stack
-- **Phased Initialization**: Establish context before generating category rules
-- **Self-Improvement**: Built-in system for continuous rule improvement
-- **Template-Based**: Reusable templates for consistent rule generation
-- **MCP Integration**: Support for Model Context Protocol tools
+### Operator Constraints
 
-## Structure
+- **Meta Operator**: Maximum 2 consecutive applications
+- **Non after Meta**: **FORBIDDEN** - Never apply Non after Meta (causes collapse)
+- **Vale Operator**: Use with extreme caution (high collapse risk, λ=0.88)
+
+## File Structure
 
 ```
 .cursor/
-├── rules/              # Generated Cursor rules
-│   ├── meta/           # Meta rules (rule system itself)
-│   ├── general/        # Cross-cutting rules
-│   ├── backend/        # Backend-specific rules
-│   ├── frontend/       # Frontend-specific rules
-│   └── workflow/       # Workflow/process rules
 ├── commands/           # Cursor command files
-│   ├── bootstrap.md              # Phase 1: Initialize system
-│   ├── generate-category-rules.md # Phase 2: Generate category rules
-│   ├── generate-rule.md          # Generate single rule
-│   ├── generate-command.md       # Generate new command
-│   ├── generate-feature.md       # Generate feature with rules
-│   ├── generate-debug-rule.md    # Generate debugging rules
-│   ├── generate-worktree.md     # Generate worktree configuration
-│   ├── discover-mcp-servers.md   # Discover MCP servers
-│   └── generate-mcp-config.md    # Generate MCP configuration
-├── templates/          # Templates for rule/command generation
-│   ├── rules/          # Rule templates (.mdc.template)
-│   │   ├── type-safety.mdc.template
-│   │   ├── format-validation.mdc.template
-│   │   ├── accessibility.mdc.template
-│   │   ├── path-pattern.mdc.template
-│   │   ├── keyword-detection.mdc.template
-│   │   ├── file-structure.mdc.template
-│   │   └── workflow-format.mdc.template
-│   ├── commands/       # Command templates
-│   │   ├── command-template.md
-│   │   └── feature-command-template.md
-│   ├── debugging/      # Debugging helper templates
-│   │   ├── mcp-debug-helper.mdc.template
-│   │   ├── project-aware-debug.mdc.template
-│   │   ├── safe-debug-practices.mdc.template
-│   │   └── error-pattern-detection.mdc.template
-│   ├── worktrees/      # Worktree configuration templates
-│   └── mcp/            # MCP configuration templates
-├── worktrees.json      # Worktree configuration (auto-generated)
-├── mcp.json            # MCP configuration (auto-generated)
-├── README.md           # Quick-start guide
-├── WORKTREES.md         # Worktree documentation
-├── MCP.md              # MCP documentation
-└── MCP_REGISTRY.md     # MCP server registry
-
-Documentation:
-├── .cursor/BOILERPLATE.md      # Complete documentation
-└── .cursor/DOCUMENTATION.md    # System documentation
+│   ├── goal.md
+│   ├── plan.md
+│   ├── spec.md
+│   ├── halira.md
+│   └── ... (50+ commands)
+├── rules/             # Cursor rules
+│   ├── general/      # Cross-cutting rules
+│   ├── workflow/     # Process rules
+│   ├── meta/         # Meta rules
+│   ├── backend/      # Backend rules
+│   └── frontend/     # Frontend rules
+├── hooks/            # Git hooks and scripts
+├── sessions/         # Session data
+├── COMMANDS.md       # Complete command reference
+├── hooks.json        # Hook configuration
+└── worktrees.json    # Worktree configuration
 ```
 
 ## Documentation
 
-- **[.cursor/README.md](.cursor/README.md)** - Quick-start guide for the boilerplate system
-- **[.cursor/BOILERPLATE.md](.cursor/BOILERPLATE.md)** - Complete documentation with all details
-- **[.cursor/DOCUMENTATION.md](.cursor/DOCUMENTATION.md)** - System documentation
-- **[.cursor/WORKTREES.md](.cursor/WORKTREES.md)** - Worktree (parallel agents) documentation
-- **[.cursor/MCP.md](.cursor/MCP.md)** - MCP (Model Context Protocol) documentation
-- **[.cursor/MCP_REGISTRY.md](.cursor/MCP_REGISTRY.md)** - MCP server registry
+- **`.cursor/COMMANDS.md`** - Complete command reference with all parameters and examples
+- **`.cursor/rules/general/`** - Core architecture and operator rules
+- **`.cursor/rules/workflow/`** - Workflow and protocol rules
 
-## Usage
+## Adversarial Collaboration
 
-### Initial Setup (One-Time)
+The system operates in **adversarial collaboration mode**:
 
-1. **Bootstrap:**
-   ```
-   /bootstrap
-   ```
-   Detects project structure and generates foundational rules.
+- **Evaluates prompts** as formal operators
+- **Stress-tests designs** and architectures
+- **Challenges assumptions** and finds edge cases
+- **Suggests improvements** rather than just executing
 
-2. **Restart Cursor** to load new rules
+Use `/eval` to evaluate designs, prompts, or requests:
 
-3. **Generate category rules:**
-   ```
-   /generate-category-rules
-   ```
-   Generates backend, frontend, and workflow rules with full project context.
-
-### Daily Usage
-
-### Generating Rules
-
-Use the Cursor command to create new cursor rules from templates:
-
-In Cursor chat, type: `/generate-rule`
-
-Or mention: "generate a cursor rule" or "create a rule"
-
-The AI will:
-1. Ask you to select a template from available options
-2. Prompt for rule details (name, category, type, etc.)
-3. Collect template-specific information
-4. Load the template from `.cursor/templates/rules/`
-5. Replace placeholders with your input
-6. Validate the generated rule
-7. Write the rule to the appropriate category folder
-
-**Available Templates:**
-- `type-safety` - Type checking rules (TypeScript, API types)
-- `format-validation` - Regex-based format validation
-- `accessibility` - HTML/JSX attribute checks
-- `path-pattern` - File path matching rules
-- `keyword-detection` - Keyword-based guidance rules
-- `file-structure` - File organization rules
-- `workflow-format` - User story, acceptance criteria templates
-
-**Categories:**
-- `backend/` - API, server, database rules
-- `frontend/` - Components, UI, styling rules
-- `general/` - Cross-cutting concerns
-- `workflow/` - Process rules
-- `meta/` - Rules about the rule system
-
-### Generating Commands
-
-Create new Cursor command files:
-
-In Cursor chat, type: `/generate-command`
-
-The AI will:
-1. Ask if it's a feature command or regular command
-2. Collect command details
-3. Load the appropriate template from `.cursor/templates/commands/`
-4. Replace placeholders with your input
-5. Generate the command file in `.cursor/commands/`
-
-### Generating Features
-
-Scaffold features with automatic rule generation:
-
-In Cursor chat, type: `/generate-feature`
-
-The AI will:
-1. Detect project structure (framework, language, build tool)
-2. Prompt for feature details (name, type, path)
-3. Generate appropriate cursor rules based on:
-   - Project type (Next.js, React, Express, etc.)
-   - Feature type (API endpoint, component, etc.)
-   - Language (TypeScript/JavaScript)
-4. Load templates from `.cursor/templates/rules/`
-5. Create multiple rules (type-safety, path-pattern, accessibility if frontend)
-6. Write all rules to appropriate category folders
-
-### Generating Debugging Rules
-
-Create debugging helper rules with MCP integration:
-
-In Cursor chat, type: `/generate-debug-rule`
-
-The AI will:
-1. Ask for debugging rule type (mcp-integration, project-aware, safe-practices, error-patterns)
-2. Detect project structure
-3. Load template from `.cursor/templates/debugging/`
-4. Replace placeholders with project-specific information
-5. Generate the rule in `.cursor/rules/general/`
-
-## Template System
-
-### Rule Templates
-
-Templates use placeholder syntax: `{{PLACEHOLDER_NAME}}`
-
-**Common Placeholders:**
-- `{{RULE_NAME}}` - Name of the rule
-- `{{DESCRIPTION}}` - Rule description
-- `{{CATEGORY}}` - Category folder
-- `{{RULE_TYPE}}` - always, manual, guideline, autoAttached
-- `{{ALWAYS_APPLY}}` - true or false
-- `{{GLOBS}}` - File pattern globs
-- `{{WHEN_CONDITION}}` - When condition for rule activation
-
-**Conditional Blocks:**
-```handlebars
-{{#if CONDITION}}
-  content here
-{{/if}}
+```bash
+/eval design: Microservices architecture
+/eval prompt: Add caching to all endpoints
+/eval request: Implement feature X
 ```
 
-**Loops:**
-```handlebars
-{{#each ARRAY}}
-  {{this}}
-{{/each}}
+## Getting Help
+
+1. **Type `/` in Cursor chat** to see all available commands
+2. **Check `.cursor/COMMANDS.md`** for detailed command documentation
+3. **Use `/detect-state`** to understand current reasoning state
+4. **Use `/mode`** to detect operational mode for a problem
+
+## Examples
+
+### Example 1: Simple Feature
+
+```bash
+/goal define: Add user profile page
+/plan create: Implement user profile feature
+/spec feature: User profile with edit capability
+/implement feature: User profile with edit capability
+/tests feature: User profile
 ```
 
-### Creating Custom Templates
+### Example 2: Complex Contradiction
 
-1. Create a new `.mdc.template` file in `.cursor/templates/rules/`
-2. Use placeholder syntax for variables
-3. Follow the structure of existing templates
-4. The Cursor commands will automatically detect and use new templates
-5. Update `.cursor/commands/generate-rule.md` if you want to document the new template
+```bash
+/detect-state analyze: Need both consistency and scalability but they conflict
+/halira contradiction: Need both consistency and scalability but they conflict
+/attack design: Single database architecture
+/rupture anomaly: Database can't scale
+```
 
-## Debugging Helpers
+### Example 3: Self-Improvement
 
-### MCP Integration
-
-The debugging templates support MCP (Model Context Protocol) tool integration:
-
-- **mcp-debug-helper.mdc.template**: MCP tool references and safe debugging practices
-- **project-aware-debug.mdc.template**: Project structure detection for debugging
-- **safe-debug-practices.mdc.template**: Safety guidelines and checklists
-- **error-pattern-detection.mdc.template**: Common error pattern detection
-
-All templates are located in `.cursor/templates/debugging/`
-
-### Using Debugging Templates
-
-1. Use `/generate-debug-rule` command in Cursor chat
-2. Select a debugging template type
-3. The AI will detect your project structure
-4. Configure MCP tools (if applicable) - the AI will prompt for this
-5. The generated rule will be customized for your project type
-
-## Project Awareness
-
-The Cursor commands automatically detect project structure by:
-
-- Reading `package.json` to identify framework (Next.js, React, Express, etc.)
-- Checking for `tsconfig.json` to detect TypeScript
-- Analyzing build configuration files (next.config.js, vite.config.js, etc.)
-- Identifying language (TypeScript/JavaScript)
-- Determining build tool (Webpack, Vite, Next.js, etc.)
-
-This information is used to:
-- Generate appropriate rule types
-- Suggest correct file patterns
-- Apply framework-specific best practices
-- Customize debugging rules for your project
-
-## Validation
-
-All generated rules are validated against:
-
-- YAML frontmatter presence
-- Required fields (description, type, when condition)
-- Rule type validity
-- Category folder correctness
-
-Rules must pass validation before being written to disk.
-
-## Best Practices
-
-1. **Use Templates**: Don't create rules from scratch - use templates
-2. **Be Specific**: Use specific glob patterns instead of `/**`
-3. **Add Descriptions**: Always include meaningful descriptions
-4. **Test Rules**: Validate rules work as expected after generation
-5. **Document**: Add comments for complex conditions
-
-## Troubleshooting
-
-### Template Not Found
-- Ensure template file exists in `.cursor/templates/rules/` (or appropriate subdirectory)
-- Check filename matches exactly (case-sensitive)
-
-### Validation Errors
-- Review error messages
-- Check required fields are filled
-- Ensure rule type is valid
-
-### Project Detection Issues
-- Verify `package.json` exists
-- Check for TypeScript configuration files
-- Review project structure
+```bash
+/ana improve: src/utils/validation.ts
+/self-improve analyze: Code generation workflow
+/self-improve optimize: Test generation process
+```
 
 ## Contributing
 
-To add new templates:
+To add new commands or rules:
 
-1. Create template file in appropriate directory (`.cursor/templates/rules/`, `.cursor/templates/debugging/`, `.cursor/templates/mcp/`, etc.)
-2. Use standard placeholder syntax (`{{PLACEHOLDER_NAME}}`)
-3. Add template to documentation in the appropriate command file
-4. Test by using the Cursor command with the new template
+1. **Commands**: Add `.md` files to `.cursor/commands/`
+2. **Rules**: Add `.mdc` files to appropriate category in `.cursor/rules/`
+3. **Update**: Update `.cursor/COMMANDS.md` for new commands
 
-## Cursor Commands Reference
+## License
 
-All generators are implemented as Cursor commands (see https://cursor.com/docs):
+This system is part of the Cursor Rules Boilerplate Generator project.
 
-- `/generate-rule` - Generate cursor rules from templates
-- `/generate-command` - Generate new Cursor command files
-- `/generate-feature` - Generate features with automatic rule creation
-- `/generate-debug-rule` - Generate debugging rules with MCP integration
+---
 
-Commands are located in `.cursor/commands/` and provide instructions to the AI agent.
-
-## Documentation Files
-
-- **[.cursor/README.md](.cursor/README.md)** - Quick-start guide
-  - System overview
-  - Available commands
-  - Quick reference
-
-- **[.cursor/BOILERPLATE.md](.cursor/BOILERPLATE.md)** - Complete system documentation
-  - Overview and quick start
-  - System architecture
-  - Commands reference
-  - Templates reference
-  - Project context system
-  - Self-improvement system
-  - Best practices
-  - Troubleshooting
-
-- **[.cursor/DOCUMENTATION.md](.cursor/DOCUMENTATION.md)** - System documentation
-  - Detailed system information
-  - Architecture details
-  - Implementation guides
-
-- **[.cursor/WORKTREES.md](.cursor/WORKTREES.md)** - Worktree documentation
-  - Parallel agent support
-  - Configuration guide
-  - Best practices
-
-- **[.cursor/MCP.md](.cursor/MCP.md)** - MCP documentation
-  - Model Context Protocol guide
-  - Server setup instructions
-  - Web development workflows
-
-- **[.cursor/MCP_REGISTRY.md](.cursor/MCP_REGISTRY.md)** - MCP server registry
-  - Available MCP servers
-  - Configuration examples
-  - Server discovery
-
-## See Also
-
-- `.cursor/rules/meta/rule-generator.mdc` - Rule validation rules
-- `.cursor/rules/meta/rule-generation-guide.mdc` - Rule generation guide
-- `.cursor/rules/meta/rule-improvement.mdc` - Self-improvement system
-- `.cursor/commands/` - All Cursor command files
-- `.cursor/templates/` - All template files (rules, commands, debugging, worktrees, mcp)
-- [Cursor Documentation](https://cursor.com/docs) - Official Cursor documentation for commands, MCP, and more
+**Quick Reference**: Type `/` in Cursor chat to see all available commands. The system automatically selects the appropriate mode and operators based on your problem.
 
