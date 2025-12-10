@@ -65,7 +65,7 @@ temp/
 *.temp
 
 # Cursor-specific (optional - uncomment if you want to ignore generated files)
-.cursor.backup
+.cursor.backup*
 # .cursor/rules/**/*.mdc
 # .cursor/worktrees.json
 # .cursor/mcp.json
